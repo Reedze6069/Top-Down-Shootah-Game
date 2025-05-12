@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
-    public float speed;
-    public int health;
     public bool shouldRotate = false;
     public float rotationSpeed = 180f; // Degrees per second
 
@@ -42,30 +40,20 @@ public class Enemy : MonoBehaviour
                 player.TakeDamage(1);
             }
         }
+    }
 
-        void TakeDamage(int damageAmount)
+    public override void HandleDeath()
+    {
+        if (deathEffectPrefab != null)
         {
-            health -= damageAmount;
-
-            if (health <= 0)
-            {
-                HandleDeath();
-            }
+            GameObject effect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 1f); // cleanup after 1 second
+        }
+        else
+        {
+            Debug.LogWarning("Enemy deathEffectPrefab is not assigned.");
         }
 
-        void HandleDeath()
-        {
-            if (deathEffectPrefab != null)
-            {
-                GameObject effect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
-                Destroy(effect, 1f); // cleanup after 1 second
-            }
-            else
-            {
-                Debug.LogWarning("Enemy deathEffectPrefab is not assigned.");
-            }
-
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

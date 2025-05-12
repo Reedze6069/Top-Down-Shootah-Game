@@ -5,9 +5,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Character
 {
-    public float speed;
     public Transform Weapon;
     public float offset;
 
@@ -16,11 +15,8 @@ public class PlayerController : MonoBehaviour
     public float timeBetweenShots;
     float nextShotTime;
 
-    public int health = 3;
     public TMP_Text healthText;
 
-    public float invincibilityDuration = 1.5f;
-    private bool isInvincible = false;
 
     private Camera mainCam;
     private Vector2 spriteHalfSize;
@@ -64,20 +60,15 @@ public class PlayerController : MonoBehaviour
         ClampToCameraBounds();
     }
 
-    public void TakeDamage(int amount)
+    public override void TakeDamage(int amount)
     {
-        if (isInvincible) return;
+        base.TakeDamage(amount);
 
-        health -= amount;
         UpdateHealthUI();
-
-        if (health <= 0)
+        if (health > 0)
         {
-            SceneManager.LoadScene("SampleScene");
-            return;
+            StartCoroutine(InvincibilityFlash());
         }
-
-        StartCoroutine(InvincibilityFlash());
     }
 
     void UpdateHealthUI()
@@ -115,5 +106,10 @@ public class PlayerController : MonoBehaviour
         clampedPos.y = Mathf.Clamp(clampedPos.y, minBounds.y + spriteHalfSize.y, maxBounds.y - spriteHalfSize.y);
 
         transform.position = clampedPos;
+    }
+
+    public override void HandleDeath()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
