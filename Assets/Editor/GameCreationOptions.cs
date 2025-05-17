@@ -3,19 +3,34 @@ using UnityEngine;
 
 public static class GameCreationOptions
 {
-    [MenuItem("GameObject/Survival Game/Create Player")]
+    private const string playerPrefabPath = "Assets/Prefabs/PlayerPrefab.prefab";
+
+    [MenuItem("GameObject/Survival Game/Create Player", false, 10)]
     public static void CreatePlayer()
     {
-        // This creates an object from Right Click > Survival Game > Create Player
-        GameObject player = new GameObject("Player");
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(playerPrefabPath);
         
-        // Alternatively, instantiate a copy of a prefab
+        if (prefab == null)
+        {
+            Debug.LogError($"Player prefab not found at path: {playerPrefabPath}");
+            return;
+        }
+
+        GameObject playerInstance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+        if (playerInstance != null)
+        {
+            // Position in scene (e.g. center of view)
+            playerInstance.transform.position = Vector3.zero;
+            Undo.RegisterCreatedObjectUndo(playerInstance, "Create Player");
+            Selection.activeGameObject = playerInstance;
+        }
     }
 }
 
+
 //Editor window for the spawn timer & for the background colors
 
-// Sciptable objects to create enemies 
+// Scriptable objects to create enemies 
 
 //Right click menu that creates game presets (the above)
 
