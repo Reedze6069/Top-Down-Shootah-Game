@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1644738cf3fdaf4eba0c5d5a8b9e1db, type: 3}
   m_Name: normalEnemy
   m_EditorClassIdentifier: 
-  enemyName: 
-  prefab: {fileID: 0}
+  enemyName: normalEnemy
+  prefab: {fileID: 3342727372751502971, guid: f42dc06a62051d34c92df5588c75ce06, type: 3}
   health: 1
-  speed: 2
-  shouldRotate: 0
+  speed: 4.5
+  shouldRotate: 1
   rotationSpeed: 180
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 6734095711069675211, guid: 0fa8b0f68ef85f24e8687678b9b0c0cb, type: 3}

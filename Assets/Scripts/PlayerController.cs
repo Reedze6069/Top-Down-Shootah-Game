@@ -4,7 +4,6 @@ using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerController : Character
 {
     public Transform Weapon;
@@ -16,7 +15,6 @@ public class PlayerController : Character
     float nextShotTime;
 
     public TMP_Text healthText;
-
 
     private Camera mainCam;
     private Vector2 spriteHalfSize;
@@ -62,9 +60,12 @@ public class PlayerController : Character
 
     public override void TakeDamage(int amount)
     {
+        if (isInvincible) return;
+
         base.TakeDamage(amount);
 
         UpdateHealthUI();
+
         if (health > 0)
         {
             StartCoroutine(InvincibilityFlash());

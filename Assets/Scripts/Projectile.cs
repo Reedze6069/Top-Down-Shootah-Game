@@ -17,11 +17,13 @@ public class Projectile : MonoBehaviour
         // Ensure the Rigidbody2D is kinematic to avoid unwanted physics interactions
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        rb.isKinematic = true;
+        rb.bodyType = RigidbodyType2D.Kinematic;
 
         // Ensure collider is trigger for collision detection
         Collider2D col = GetComponent<Collider2D>();
         col.isTrigger = true;
+        Destroy(gameObject, 2f);
+
     }
 
     void Update()

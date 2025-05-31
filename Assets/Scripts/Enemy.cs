@@ -8,11 +8,14 @@ public class Enemy : Character
 
     public GameObject deathEffectPrefab; // Assign in Inspector
 
-    Transform player;
+    private Transform player;
+
+    private float nextDamageTime = 0f;
+    public float damageInterval = 1f; // seconds between each damage tick
 
     void Start()
     {
-        player = FindObjectOfType<PlayerController>().transform;
+        player = Object.FindFirstObjectByType<PlayerController>().transform;
     }
 
     void Update()
@@ -25,20 +28,24 @@ public class Enemy : Character
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Projectile"))
-        {
-            TakeDamage(other.GetComponent<Projectile>().damage);
-        }
-
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Time.time >= nextDamageTime)
         {
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
                 player.TakeDamage(1);
+                nextDamageTime = Time.time + damageInterval;
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            TakeDamage(other.GetComponent<Projectile>().damage);
         }
     }
 

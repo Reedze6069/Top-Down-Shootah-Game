@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GameUI.uss?fileID=7433441132597879392&amp;guid=fa9f73f3e2f07b6418b9968dd1aeb73d&amp;type=3#GameUI" />
+    <ui:Label text="HP 3" name="health-label" class="hud-label" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=8309dadec39232443ba88bc743c539f5&amp;type=3#PressStart2P-Regular&quot;); opacity: 1;" />
+    <ui:Label text="00:00" name="timer-label" class="timer-label" style="color: rgb(255, 255, 255); -unity-font-style: normal; font-size: 24px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=8309dadec39232443ba88bc743c539f5&amp;type=3#PressStart2P-Regular&quot;); align-items: center; -unity-text-align: middle-center; height: 33px; width: 345px; margin-top: 10px; justify-content: center; align-self: center; align-content: flex-start; opacity: 1;" />
+</ui:UXML>

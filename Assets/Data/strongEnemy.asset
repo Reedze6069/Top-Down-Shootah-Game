@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: strongEnemy
   m_EditorClassIdentifier: 
   enemyName: StrongEnemy
-  prefab: {fileID: 0}
-  health: 1
-  speed: 2
-  shouldRotate: 0
+  prefab: {fileID: 3342727372751502971, guid: efaf829bfccbaec43ab3c11eecaab0f0, type: 3}
+  health: 3
+  speed: 4
+  shouldRotate: 1
   rotationSpeed: 180
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 6734095711069675211, guid: 03ba623e2b9da2b48a60ae5e89056668, type: 3}

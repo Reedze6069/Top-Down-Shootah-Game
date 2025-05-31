@@ -1,0 +1,17 @@
+.hud-label {
+    font-size: 24px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    margin-left: 10px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/PressStart2P-Regular.ttf?fileID=12800000&guid=8309dadec39232443ba88bc743c539f5&type=3#PressStart2P-Regular");
+}
+
+.timer-label {
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/PressStart2P-Regular.ttf?fileID=12800000&guid=8309dadec39232443ba88bc743c539f5&type=3#PressStart2P-Regular");
+    align-self: center;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    -unity-text-align: upper-center;
+}
