@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 735796907079661276}
   serializedVersion: 2
   m_LocalRotation: {x: 0.054673415, y: 0.07048699, z: -0.9477614, w: 0.3062529}
-  m_LocalPosition: {x: 0.40674067, y: -0.5190023, z: -0.083655134}
-  m_LocalScale: {x: 0.07064338, y: 1.2199004, z: 1}
+  m_LocalPosition: {x: 0.3827776, y: -0.49437225, z: -0.07691552}
+  m_LocalScale: {x: 0.28, y: 0.31, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 664408318994215514}
@@ -233,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 6581696454728498975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.487, z: -0.109}
+  m_LocalPosition: {x: 0.09, y: 0.36, z: -0.109}
   m_LocalScale: {x: 6.0267777, y: 1.2514509, z: 1.0857028}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -343,12 +343,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 3
-  invincibilityDuration: 3
+  invincibilityDuration: 2.5
   Weapon: {fileID: 181099544352963506}
   offset: 230
   shotPoint: {fileID: 1035388664903372022}
   projectile: {fileID: 2096050389682757266, guid: f6a5525d3c712ab408726fedcbf5a3f4, type: 3}
-  timeBetweenShots: 0.25
+  timeBetweenShots: 0.3
   healthText: {fileID: 0}
 --- !u!58 &7804325948988359152
 CircleCollider2D:
